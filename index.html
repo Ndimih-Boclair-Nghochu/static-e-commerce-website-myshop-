@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Advanced Ecommerce</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<header class="navbar" role="banner">
+    <div class="nav-inner">
+        <button id="menu-toggle" class="hamburger" aria-label="Open menu">☰</button>
+        <div class="brand">
+            <a href="#hero" class="logo">MyShop</a>
+        </div>
+
+        <div class="search-wrap">
+            <select class="category-select" aria-label="All categories">
+                <option>All</option>
+                <option>Electronics</option>
+                <option>Wearables</option>
+                <option>Home</option>
+            </select>
+            <input type="search" id="site-search" placeholder="Search Amazon-style demo" aria-label="Search">
+            <button class="btn search-btn" aria-label="Search">Search</button>
+        </div>
+
+        <nav class="nav-links" role="navigation">
+            <a href="#products">Today's Deals</a>
+            <a href="#about">Customer Service</a>
+        </nav>
+
+        <div class="actions">
+            <a class="signin" href="#">Sign in</a>
+            <button class="icon-btn" id="cart-toggle" aria-label="Open cart">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 6h15l-1.5 9h-12L4 2H2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <span id="cart-count" class="cart-count">0</span>
+            </button>
+        </div>
+    </div>
+</header>
+
+<!-- Slide-out categories for mobile -->
+<aside id="side-cats" class="side-cats" aria-hidden="true">
+    <button id="close-cats" class="close-cats" aria-label="Close categories">✕</button>
+    <nav class="cats">
+        <a href="#">All</a>
+        <a href="#">Electronics</a>
+        <a href="#">Wearables</a>
+        <a href="#">Home & Kitchen</a>
+        <a href="#">Toys</a>
+        <a href="#">Books</a>
+    </nav>
+</aside>
+<div id="overlay" class="overlay" hidden></div>
+
+<main>
+    <section class="hero" id="hero" aria-label="Featured banner">
+        <div class="hero-inner">
+            <h1>Discover Premium Products</h1>
+            <p>Handpicked electronics and tech gadgets. Fast shipping, easy returns.</p>
+            <button class="btn primary" onclick="scrollToProducts()">Shop Now</button>
+        </div>
+    </section>
+
+    <section class="products" id="products" aria-labelledby="featured-heading">
+        <h2 id="featured-heading">Featured Products</h2>
+        <div class="grid">
+            <article class="product-card" data-name="Premium Headphones" data-price="129" data-badge="Best Seller" data-shipping="Free 2-day shipping">
+                <div class="media"><img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500&h=400&fit=crop" alt="Premium Headphones"></div>
+                <div class="card-body">
+                    <h3>Premium Headphones <span class="badge">Best Seller</span></h3>
+                    <div class="rating" aria-hidden="true">★★★★☆ <span class="muted">(124)</span></div>
+                    <p class="muted">Immersive sound with noise isolation.</p>
+                    <div class="meta">
+                        <div>
+                            <span class="price">$129</span>
+                            <div class="muted small shipping">Free 2-day shipping</div>
+                        </div>
+                        <button class="btn add" aria-label="Add Premium Headphones to cart">Add to Cart</button>
+                    </div>
+                </div>
+            </article>
+
+            <article class="product-card" data-name="Smart Watch" data-price="199" data-badge="Limited" data-shipping="Ships tomorrow">
+                <div class="media"><img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=500&h=400&fit=crop" alt="Smart Watch"></div>
+                <div class="card-body">
+                    <h3>Smart Watch <span class="badge muted">Limited</span></h3>
+                    <div class="rating" aria-hidden="true">★★★★★ <span class="muted">(2.3k)</span></div>
+                    <p class="muted">Track health, workouts, and sleep.</p>
+                    <div class="meta">
+                        <div>
+                            <span class="price">$199</span>
+                            <div class="muted small shipping">Ships tomorrow</div>
+                        </div>
+                        <button class="btn add" aria-label="Add Smart Watch to cart">Add to Cart</button>
+                    </div>
+                </div>
+            </article>
+
+            <article class="product-card" data-name="Wireless Speaker" data-price="89" data-shipping="Free shipping">
+                <div class="media"><img src="https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=500&h=400&fit=crop" alt="Wireless Speaker"></div>
+                <div class="card-body">
+                    <h3>Wireless Speaker</h3>
+                    <div class="rating" aria-hidden="true">★★★☆☆ <span class="muted">(512)</span></div>
+                    <p class="muted">Room-filling, crystal-clear audio.</p>
+                    <div class="meta">
+                        <div>
+                            <span class="price">$89</span>
+                            <div class="muted small shipping">Free shipping</div>
+                        </div>
+                        <button class="btn add" aria-label="Add Wireless Speaker to cart">Add to Cart</button>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <section class="about" id="about">
+        <div class="container">
+            <h2>Why Choose Us?</h2>
+            <p class="section-lead">We deliver premium shopping experiences with quality products and exceptional service.</p>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🚚</div>
+                    <h3>Fast & Free Shipping</h3>
+                    <p>Free shipping on orders over $49. Delivered to your door in 2-3 business days with real-time tracking.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">✓</div>
+                    <h3>Quality Guaranteed</h3>
+                    <p>Every product is carefully selected and inspected. 30-day money-back guarantee on all purchases.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💬</div>
+                    <h3>Expert Support</h3>
+                    <p>24/7 customer support team ready to help. Live chat, email, or phone — we're here for you.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🛡️</div>
+                    <h3>Secure & Safe</h3>
+                    <p>Bank-level encryption protects your data. Secure checkout with multiple payment options.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<aside id="cart-drawer" class="cart-drawer" aria-hidden="true">
+    <header class="cart-header">
+        <h3>Your Cart</h3>
+        <button class="icon-btn" id="close-cart" aria-label="Close cart">✕</button>
+    </header>
+    <div class="cart-items" id="cart-items">
+        <p class="muted">Your cart is empty.</p>
+    </div>
+    <div class="cart-footer">
+        <div class="total">Total: <span id="cart-total">$0</span></div>
+        <button class="btn primary">Checkout</button>
+    </div>
+</aside>
+
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+<footer>
+    <div class="container">
+        <p>© 2025 MyShop. All Rights Reserved.</p>
+    </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
